@@ -47,10 +47,9 @@ def docker_compose(docker_compose_cm):
 def docker_compose_up(docker_compose_yml):
     subprocess.check_call(
         [
-            "docker",
-            "compose",
+            "docker-compose",
             "--file",
-            docker_compose_yml,
+            str(docker_compose_yml),
             "up",
             "--detach",
         ]
@@ -60,10 +59,9 @@ def docker_compose_up(docker_compose_yml):
 def docker_compose_down(docker_compose_yml):
     subprocess.check_call(
         [
-            "docker",
-            "compose",
+            "docker-compose",
             "--file",
-            docker_compose_yml,
+            str(docker_compose_yml),
             "down",
         ]
     )
