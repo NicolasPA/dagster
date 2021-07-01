@@ -17,3 +17,6 @@ exclude = '''
 )/
 '''
 target_version = ['py36', 'py37', 'py38']
+
+[tool.pytest.ini_options]
+addopts = "-p dagster_test.fixtures"
