@@ -10,8 +10,7 @@ from .utils import BUILDKITE
 
 
 @pytest.fixture
-def docker_compose_cm(request):
-    test_directory = os.path.dirname(request.fspath)
+def docker_compose_cm(test_directory):
     default_docker_compose_yml = os.path.join(test_directory, "docker-compose.yml")
 
     @contextmanager

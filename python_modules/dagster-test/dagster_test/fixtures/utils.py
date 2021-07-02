@@ -14,3 +14,13 @@ def retrying_requests():
         "http://", requests.adapters.HTTPAdapter(max_retries=Retry(total=5, backoff_factor=1))
     )
     yield session
+
+
+@pytest.fixture
+def test_directory(request):
+    yield os.path.dirname(request.fspath)
+
+
+@pytest.fixture
+def test_id(testrun_uid):
+    yield testrun_uid
