@@ -17,11 +17,13 @@ def docker_compose_cm(request):
     default_docker_compose_project = os.path.basename(test_directory).replace("/", "_")
 
     default_network = default_docker_compose_project + "_default"
+    print(default_network)
 
     @contextmanager
     def docker_compose(docker_compose_yml=default_docker_compose_yml, network_name=default_network):
         try:
             docker_compose_up(docker_compose_yml)
+            print(subprocess.check_output(["docker", "network", "ls"]))
             if BUILDKITE:
                 # When running in a container on Buildkite, we need to first connect our container
                 # and our network and then yield a dict of container name to the container's
