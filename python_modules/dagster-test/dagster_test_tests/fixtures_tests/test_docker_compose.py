@@ -1,6 +1,5 @@
 import os
 import shutil
-import subprocess
 
 
 def test_docker_compose(docker_compose, retrying_requests):
